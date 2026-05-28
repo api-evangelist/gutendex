@@ -1,0 +1,32 @@
+aid: gutendex
+name: Gutendex
+description: "Web-API for fetching data from Project Gutenberg Books Library"
+url: https://gutendex.com/
+specificationVersion: '0.20'
+created: '2026-05-28'
+modified: '2026-05-28'
+x-source: public-apis/public-apis
+x-category: "Books"
+x-tier: 3
+x-tier-reason: bulk-registered-from-public-apis
+tags:
+  - Books
+  - Public APIs
+apis:
+  - name: Gutendex
+    description: "Web-API for fetching data from Project Gutenberg Books Library"
+    humanURL: https://gutendex.com/
+    baseURL: https://gutendex.com/
+    tags:
+      - Books
+    properties:
+      - type: Documentation
+        url: https://gutendex.com/
+common:
+  - type: Website
+    url: https://gutendex.com/
+  - type: PublicAPIsListing
+    url: https://github.com/public-apis/public-apis
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
