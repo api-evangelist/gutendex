@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Format",
+  "type": "object",
+  "description": "Mapping of MIME-type strings to URLs where the book file can be downloaded.",
+  "additionalProperties": {
+    "type": "string",
+    "format": "uri"
+  }
+}

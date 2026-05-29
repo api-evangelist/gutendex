@@ -1,0 +1,276 @@
+openapi: 3.1.0
+info:
+  title: Gutendex API
+  description: >-
+    Gutendex is a simple, self-hosted JSON-based web API for serving book
+    catalog information from Project Gutenberg, an online library of over
+    70,000 free ebooks. The API exposes metadata about books, authors,
+    editors, translators, languages, subjects, bookshelves, copyright status,
+    media types, and downloadable formats. The hosted instance at
+    https://gutendex.com runs the open-source Django project published at
+    github.com/garethbjohnson/gutendex under the MIT license.
+  version: 1.0.0
+  termsOfService: https://gutendex.com
+  contact:
+    name: Gareth B. Johnson
+    url: https://github.com/garethbjohnson/gutendex
+  license:
+    name: MIT
+    url: https://github.com/garethbjohnson/gutendex/blob/master/license
+
+servers:
+- url: https://gutendex.com
+  description: Gutendex Production
+- url: http://localhost:8000
+  description: Local Self-Hosted Instance
+
+tags:
+- name: Books
+  description: Query and retrieve metadata for Project Gutenberg ebooks.
+
+paths:
+  /books:
+    get:
+      operationId: listBooks
+      summary: List Books
+      description: >-
+        Returns a paginated list of book metadata from the Project Gutenberg
+        catalog. Results are returned 32 per page and can be filtered by
+        author birth/death year, copyright status, Project Gutenberg IDs,
+        languages, MIME type, search keywords, and topic. By default books
+        are sorted by popularity (download count, descending).
+      tags:
+      - Books
+      parameters:
+      - name: author_year_start
+        in: query
+        description: >-
+          Find books with at least one author alive on or after this year.
+          Accepts positive or negative integers (negative for BCE).
+        schema:
+          type: integer
+        example: 1800
+      - name: author_year_end
+        in: query
+        description: >-
+          Find books with at least one author alive on or before this year.
+          Accepts positive or negative integers (negative for BCE).
+        schema:
+          type: integer
+        example: 1899
+      - name: copyright
+        in: query
+        description: >-
+          Filter by copyright status. Comma-separated values among `true`
+          (copyrighted), `false` (public domain in the USA), and `null` (no
+          available copyright information).
+        schema:
+          type: string
+        example: true,false
+      - name: ids
+        in: query
+        description: >-
+          Comma-separated list of Project Gutenberg ID numbers to retrieve.
+        schema:
+          type: string
+        example: 11,12,13
+      - name: languages
+        in: query
+        description: >-
+          Comma-separated two-character language codes. Returns books in any
+          of the listed languages.
+        schema:
+          type: string
+        example: en,fr
+      - name: mime_type
+        in: query
+        description: >-
+          Prefix-matched MIME type. Returns books that have at least one
+          format whose MIME type starts with this value.
+        schema:
+          type: string
+        example: text/html
+      - name: search
+        in: query
+        description: >-
+          Space-separated keywords searched case-insensitively across author
+          names and book titles. Up to 32 terms are honored.
+        schema:
+          type: string
+        example: dickens great
+      - name: sort
+        in: query
+        description: >-
+          Sort order. `popular` (default) sorts by download count descending,
+          `ascending` sorts by Project Gutenberg ID ascending, `descending`
+          sorts by ID descending.
+        schema:
+          type: string
+          enum:
+          - popular
+          - ascending
+          - descending
+          default: popular
+      - name: topic
+        in: query
+        description: >-
+          Case-insensitive key-phrase matched against bookshelf names and
+          subject headings.
+        schema:
+          type: string
+        example: children
+      responses:
+        '200':
+          description: A paginated list of books.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookList'
+  /books/{id}:
+    get:
+      operationId: getBook
+      summary: Get Book
+      description: >-
+        Returns the metadata for a single book identified by its Project
+        Gutenberg ID.
+      tags:
+      - Books
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Project Gutenberg ID number of the book.
+        schema:
+          type: integer
+        example: 1342
+      responses:
+        '200':
+          description: Book metadata for the requested ID.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '404':
+          description: No book with the supplied ID was found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    BookList:
+      type: object
+      description: Paginated wrapper around a page of Book results.
+      properties:
+        count:
+          type: integer
+          description: Total number of books matching the query across all pages.
+        next:
+          type:
+          - string
+          - 'null'
+          description: URL of the next page of results, or null if this is the last page.
+        previous:
+          type:
+          - string
+          - 'null'
+          description: URL of the previous page of results, or null if this is the first page.
+        results:
+          type: array
+          description: Array of zero to thirty-two Book objects.
+          items:
+            $ref: '#/components/schemas/Book'
+    Book:
+      type: object
+      description: Metadata for a single Project Gutenberg ebook.
+      properties:
+        id:
+          type: integer
+          description: Project Gutenberg ID number of the book.
+        title:
+          type:
+          - string
+          - 'null'
+          description: Title of the book.
+        authors:
+          type: array
+          description: People credited as authors of the book.
+          items:
+            $ref: '#/components/schemas/Person'
+        summaries:
+          type: array
+          description: Plain-text summaries of the book.
+          items:
+            type: string
+        editors:
+          type: array
+          description: People credited as editors of the book.
+          items:
+            $ref: '#/components/schemas/Person'
+        translators:
+          type: array
+          description: People credited as translators of the book.
+          items:
+            $ref: '#/components/schemas/Person'
+        subjects:
+          type: array
+          description: Library of Congress subject headings assigned to the book.
+          items:
+            type: string
+        bookshelves:
+          type: array
+          description: Project Gutenberg bookshelves containing the book.
+          items:
+            type: string
+        languages:
+          type: array
+          description: Two-character ISO language codes of the book content.
+          items:
+            type: string
+        copyright:
+          type:
+          - boolean
+          - 'null'
+          description: Copyright status. True if copyrighted, false if public domain in the USA, null if unknown.
+        media_type:
+          type: string
+          description: Media type of the work (for example `Text`, `Sound`, `Image`).
+        formats:
+          $ref: '#/components/schemas/Format'
+        download_count:
+          type: integer
+          description: Number of times the book has been downloaded from Project Gutenberg.
+    Person:
+      type: object
+      description: An author, editor, or translator associated with one or more books.
+      properties:
+        name:
+          type: string
+          description: Display name of the person, typically rendered as "Last, First".
+        birth_year:
+          type:
+          - integer
+          - 'null'
+          description: Year of birth as a signed integer; negative for BCE.
+        death_year:
+          type:
+          - integer
+          - 'null'
+          description: Year of death as a signed integer; negative for BCE.
+    Format:
+      type: object
+      description: >-
+        Mapping of MIME-type strings to URLs where the book file can be
+        downloaded. Keys are MIME types (for example `text/html`,
+        `application/epub+zip`, `application/x-mobipocket-ebook`); values are
+        URLs hosted on Project Gutenberg or its mirrors.
+      additionalProperties:
+        type: string
+    Error:
+      type: object
+      description: Standard error response body.
+      properties:
+        detail:
+          type: string
+          description: Human-readable error message.

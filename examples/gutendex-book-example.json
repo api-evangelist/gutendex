@@ -1,0 +1,35 @@
+{
+  "id": 1661,
+  "title": "The Adventures of Sherlock Holmes",
+  "authors": [
+    {
+      "name": "Doyle, Arthur Conan",
+      "birth_year": 1859,
+      "death_year": 1930
+    }
+  ],
+  "summaries": [
+    "The Adventures of Sherlock Holmes is a collection of twelve short stories by Arthur Conan Doyle, first published on 14 October 1892."
+  ],
+  "editors": [],
+  "translators": [],
+  "subjects": [
+    "Detective and mystery stories, English",
+    "Holmes, Sherlock (Fictitious character) -- Fiction",
+    "Private investigators -- England -- Fiction"
+  ],
+  "bookshelves": [
+    "Detective Fiction",
+    "Mystery Fiction"
+  ],
+  "languages": ["en"],
+  "copyright": false,
+  "media_type": "Text",
+  "formats": {
+    "text/html": "https://www.gutenberg.org/ebooks/1661.html.images",
+    "application/epub+zip": "https://www.gutenberg.org/ebooks/1661.epub3.images",
+    "application/x-mobipocket-ebook": "https://www.gutenberg.org/ebooks/1661.kf8.images",
+    "text/plain; charset=us-ascii": "https://www.gutenberg.org/files/1661/1661-0.txt"
+  },
+  "download_count": 25180
+}

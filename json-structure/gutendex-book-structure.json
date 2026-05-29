@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "Book",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "title": { "type": ["string", "null"] },
+    "authors": { "type": "array", "items": { "$ref": "gutendex-person-structure.json" } },
+    "summaries": { "type": "array", "items": { "type": "string" } },
+    "editors": { "type": "array", "items": { "$ref": "gutendex-person-structure.json" } },
+    "translators": { "type": "array", "items": { "$ref": "gutendex-person-structure.json" } },
+    "subjects": { "type": "array", "items": { "type": "string" } },
+    "bookshelves": { "type": "array", "items": { "type": "string" } },
+    "languages": { "type": "array", "items": { "type": "string" } },
+    "copyright": { "type": ["boolean", "null"] },
+    "media_type": { "type": "string" },
+    "formats": { "$ref": "gutendex-format-structure.json" },
+    "download_count": { "type": "integer" }
+  }
+}

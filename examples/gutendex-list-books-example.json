@@ -1,0 +1,45 @@
+{
+  "count": 76283,
+  "next": "https://gutendex.com/books/?page=2",
+  "previous": null,
+  "results": [
+    {
+      "id": 1342,
+      "title": "Pride and Prejudice",
+      "authors": [
+        {
+          "name": "Austen, Jane",
+          "birth_year": 1775,
+          "death_year": 1817
+        }
+      ],
+      "summaries": [
+        "Pride and Prejudice, the story of Mrs. Bennet's attempts to marry off her five daughters is one of the best-loved novels in the English language."
+      ],
+      "translators": [],
+      "subjects": [
+        "Courtship -- Fiction",
+        "England -- Fiction",
+        "Love stories",
+        "Sisters -- Fiction",
+        "Social classes -- Fiction",
+        "Young women -- Fiction"
+      ],
+      "bookshelves": [
+        "Best Books Ever Listings",
+        "Harvard Classics"
+      ],
+      "languages": ["en"],
+      "copyright": false,
+      "media_type": "Text",
+      "formats": {
+        "text/html": "https://www.gutenberg.org/ebooks/1342.html.images",
+        "application/epub+zip": "https://www.gutenberg.org/ebooks/1342.epub3.images",
+        "application/x-mobipocket-ebook": "https://www.gutenberg.org/ebooks/1342.kf8.images",
+        "text/plain; charset=us-ascii": "https://www.gutenberg.org/files/1342/1342-0.txt",
+        "image/jpeg": "https://www.gutenberg.org/cache/epub/1342/pg1342.cover.medium.jpg"
+      },
+      "download_count": 78213
+    }
+  ]
+}

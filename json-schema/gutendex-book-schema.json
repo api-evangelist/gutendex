@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Book",
+  "type": "object",
+  "description": "Metadata for a single Project Gutenberg ebook.",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Project Gutenberg ID number of the book."
+    },
+    "title": {
+      "type": ["string", "null"],
+      "description": "Title of the book."
+    },
+    "authors": {
+      "type": "array",
+      "description": "People credited as authors of the book.",
+      "items": { "$ref": "gutendex-person-schema.json" }
+    },
+    "summaries": {
+      "type": "array",
+      "description": "Plain-text summaries of the book.",
+      "items": { "type": "string" }
+    },
+    "editors": {
+      "type": "array",
+      "description": "People credited as editors of the book.",
+      "items": { "$ref": "gutendex-person-schema.json" }
+    },
+    "translators": {
+      "type": "array",
+      "description": "People credited as translators of the book.",
+      "items": { "$ref": "gutendex-person-schema.json" }
+    },
+    "subjects": {
+      "type": "array",
+      "description": "Library of Congress subject headings assigned to the book.",
+      "items": { "type": "string" }
+    },
+    "bookshelves": {
+      "type": "array",
+      "description": "Project Gutenberg bookshelves containing the book.",
+      "items": { "type": "string" }
+    },
+    "languages": {
+      "type": "array",
+      "description": "Two-character ISO language codes of the book content.",
+      "items": { "type": "string" }
+    },
+    "copyright": {
+      "type": ["boolean", "null"],
+      "description": "Copyright status: true if copyrighted, false if public domain in the USA, null if unknown."
+    },
+    "media_type": {
+      "type": "string",
+      "description": "Media type of the work (for example Text, Sound, Image)."
+    },
+    "formats": {
+      "$ref": "gutendex-format-schema.json"
+    },
+    "download_count": {
+      "type": "integer",
+      "description": "Number of times the book has been downloaded from Project Gutenberg."
+    }
+  }
+}

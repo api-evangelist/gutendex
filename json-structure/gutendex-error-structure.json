@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "Error",
+  "type": "object",
+  "properties": {
+    "detail": { "type": "string" }
+  }
+}

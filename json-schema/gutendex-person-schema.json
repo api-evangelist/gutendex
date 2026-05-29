@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Person",
+  "type": "object",
+  "description": "An author, editor, or translator associated with one or more Project Gutenberg books.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Display name of the person, typically rendered as 'Last, First'."
+    },
+    "birth_year": {
+      "type": ["integer", "null"],
+      "description": "Year of birth as a signed integer; negative for BCE."
+    },
+    "death_year": {
+      "type": ["integer", "null"],
+      "description": "Year of death as a signed integer; negative for BCE."
+    }
+  }
+}

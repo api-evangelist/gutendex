@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "Person",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "birth_year": { "type": ["integer", "null"] },
+    "death_year": { "type": ["integer", "null"] }
+  }
+}

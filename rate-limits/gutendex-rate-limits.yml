@@ -1,0 +1,61 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Gutendex
+providerId: gutendex
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Books
+  - Open Source
+description: >-
+  Gutendex does not publicly document any hard rate limit, API key requirement, or quota
+  on its hosted instance at https://gutendex.com. Pagination is fixed at 32 results per
+  page on /books, and the search parameter caps keyword tokens at 32. Operators of
+  self-hosted Gutendex instances may impose their own infrastructure-level limits (e.g.
+  via nginx, Cloudflare, or Django middleware). Clients should be courteous: cache
+  responses, throttle bursts, and back off on transient errors to avoid impacting the
+  community-funded hosted instance.
+sources:
+  - https://gutendex.com
+  - https://github.com/garethbjohnson/gutendex
+  - https://github.com/garethbjohnson/gutendex/blob/master/readme.md
+responseCodes:
+  notFound: 404
+limits:
+  - name: Results per page
+    scope: response
+    metric: items_per_page
+    limit: 32
+    timeFrame: request
+  - name: Search terms per query
+    scope: query
+    metric: tokens_per_request
+    limit: 32
+    timeFrame: request
+  - name: Hosted instance request rate
+    scope: global
+    metric: undocumented
+    limit: -1
+    timeFrame: undocumented
+policies:
+  - name: No published rate limit
+    description: Gutendex does not document a hard per-IP or per-key rate limit. The hosted
+      instance relies on community goodwill; clients should self-throttle and cache responses.
+  - name: No authentication
+    description: All endpoints are publicly accessible with no API key, OAuth, or signup
+      requirement.
+  - name: Pagination
+    description: /books always returns a maximum of 32 book objects per page, with `next` and
+      `previous` URLs in the response wrapper for navigation.
+  - name: Self-hosting recommended for high volume
+    description: For production workloads or large-scale analytics, run a private instance
+      of github.com/garethbjohnson/gutendex rather than the shared hosted endpoint.
+  - name: Backoff on errors
+    description: Treat transient 5xx responses with exponential backoff. The hosted instance
+      is a small Django deployment without a documented retry-after header.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,69 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Gutendex
+providerId: gutendex
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: true
+tags:
+  - Books
+  - Open Source
+  - Free
+  - Project Gutenberg
+description: >-
+  Gutendex is a free, open-source web API distributed under the MIT license. The hosted
+  instance at https://gutendex.com is offered free of charge with no API key, no signup,
+  and no commercial tier. Operators who need higher throughput or guaranteed availability
+  can self-host the Django application from github.com/garethbjohnson/gutendex on their
+  own infrastructure.
+sources:
+  - https://gutendex.com
+  - https://github.com/garethbjohnson/gutendex
+  - https://github.com/garethbjohnson/gutendex/blob/master/license
+plans:
+  - id: gutendex-free
+    name: Free Hosted
+    type: free
+    description: The publicly hosted gutendex.com instance is free of charge with no authentication,
+      no quotas, and no commercial tier. Best-effort uptime, no SLA.
+    entries:
+      - label: API access
+        name: api_access
+        type: free
+        metric: request
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Full /books and /books/{id} access
+      - name: No API key required
+      - name: All query parameters available
+      - name: Public domain ebook metadata for 70,000+ Project Gutenberg titles
+  - id: gutendex-self-hosted
+    name: Self-Hosted
+    type: open-source
+    description: Run your own Gutendex instance from the MIT-licensed Django source. You bear
+      hosting costs and operational responsibility; the software itself is free.
+    entries:
+      - label: Software license
+        name: software_license
+        type: free
+        metric: install
+        limit: -1
+        timeFrame: perpetual
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: MIT-licensed source code
+      - name: Django + Django REST Framework stack
+      - name: Nightly Project Gutenberg catalog sync via management command
+      - name: Self-determined rate limits and scaling
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

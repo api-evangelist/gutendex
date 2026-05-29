@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BookList",
+  "type": "object",
+  "description": "Paginated wrapper around a page of Book results.",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "description": "Total number of books matching the query across all pages."
+    },
+    "next": {
+      "type": ["string", "null"],
+      "description": "URL of the next page of results, or null if this is the last page."
+    },
+    "previous": {
+      "type": ["string", "null"],
+      "description": "URL of the previous page of results, or null if this is the first page."
+    },
+    "results": {
+      "type": "array",
+      "description": "Array of zero to thirty-two Book objects.",
+      "items": { "$ref": "gutendex-book-schema.json" }
+    }
+  }
+}

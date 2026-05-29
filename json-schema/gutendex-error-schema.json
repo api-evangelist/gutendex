@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Error",
+  "type": "object",
+  "description": "Standard error response body returned by Gutendex.",
+  "properties": {
+    "detail": {
+      "type": "string",
+      "description": "Human-readable error message."
+    }
+  }
+}

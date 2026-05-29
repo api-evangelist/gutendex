@@ -1,0 +1,40 @@
+name: Gutendex Domain Vocabulary
+provider: Gutendex
+providerId: gutendex
+description: Tag-derived vocabulary for the Gutendex API surface, sourced from openapi/ tags
+  and the underlying Project Gutenberg catalog data model.
+terms:
+  - term: Books
+    description: Project Gutenberg ebook metadata records, including title, authors, subjects, bookshelves, languages, copyright, media type, formats, and download count.
+  - term: Book List
+    description: Paginated wrapper returning 0-32 Book records per page along with count, next, and previous links.
+  - term: Author
+    description: Person credited as the author of a book. Modeled as a Person with name, birth_year, and death_year.
+  - term: Editor
+    description: Person credited as an editor on a book. Modeled as a Person.
+  - term: Translator
+    description: Person credited as the translator of a book. Modeled as a Person.
+  - term: Subject
+    description: Library of Congress subject heading associated with a book (e.g. "Detective and mystery stories, English").
+  - term: Bookshelf
+    description: Project Gutenberg curated bookshelf grouping books by theme (e.g. "Gothic Fiction", "Science Fiction by Women").
+  - term: Language
+    description: Two-character ISO language code identifying the language of a book's text (e.g. en, fr, fi).
+  - term: Copyright
+    description: Boolean-or-null flag indicating copyright status. True for copyrighted works, false for US public domain works, null when unknown.
+  - term: Media Type
+    description: Top-level category of the work (typically Text, Sound, or Image).
+  - term: Format
+    description: Map of MIME type to download URL where the book file can be retrieved (e.g. text/html, application/epub+zip, application/x-mobipocket-ebook).
+  - term: Download Count
+    description: Total number of times Project Gutenberg has recorded the book being downloaded; default sort order.
+  - term: Project Gutenberg ID
+    description: Unique integer identifier assigned by Project Gutenberg to each ebook; used as the path parameter for /books/{id}.
+  - term: Topic
+    description: Case-insensitive key-phrase searched across bookshelves and subjects.
+  - term: Search
+    description: Space-separated keywords matched case-insensitively against author names and titles, up to 32 terms.
+  - term: Sort
+    description: Result ordering. popular (default, by download count desc), ascending (by ID asc), descending (by ID desc).
+  - term: Author Year Range
+    description: Filter for books whose authors were alive on or after author_year_start and on or before author_year_end. Negative integers represent BCE.

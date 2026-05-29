@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "BookList",
+  "type": "object",
+  "properties": {
+    "count": { "type": "integer" },
+    "next": { "type": ["string", "null"] },
+    "previous": { "type": ["string", "null"] },
+    "results": { "type": "array", "items": { "$ref": "gutendex-book-structure.json" } }
+  }
+}

@@ -1,0 +1,73 @@
+rules:
+  info-title-required:
+    description: Info title must be present
+    severity: error
+    given: $.info
+    then: {field: title, function: truthy}
+  info-description-required:
+    description: Info description must be present
+    severity: error
+    given: $.info
+    then: {field: description, function: truthy}
+  info-license-required:
+    description: Info license must be present (Gutendex is MIT licensed)
+    severity: warn
+    given: $.info
+    then: {field: license, function: truthy}
+  operation-operationid-required:
+    description: Every operation must have an operationId
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then: {field: operationId, function: truthy}
+  operation-summary-required:
+    description: Every operation must have a summary
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then: {field: summary, function: truthy}
+  operation-summary-title-case:
+    description: Operation summaries should be Title Case
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: '^([A-Z][a-z0-9]*)(\s+([A-Z][a-z0-9]*|[a-z]{1,3}))*$'
+  operation-tags-required:
+    description: Every operation must have tags
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then: {field: tags, function: truthy}
+  operation-description-required:
+    description: Every operation must have a description
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then: {field: description, function: truthy}
+  response-description-required:
+    description: Every response must have a description
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete].responses[*]
+    then: {field: description, function: truthy}
+  no-empty-descriptions:
+    description: Descriptions must not be empty
+    severity: error
+    given: $..description
+    then: {function: truthy}
+  servers-required:
+    description: At least one server must be declared
+    severity: error
+    given: $
+    then: {field: servers, function: truthy}
+  path-kebab-case:
+    description: Path segments should be lowercase (Gutendex uses /books and /books/{id})
+    severity: warn
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^(/[a-z0-9_{}-]+)+$'
+  schema-component-references:
+    description: Prefer $ref to component schemas for Book, Person, Format, BookList, Error
+    severity: info
+    given: $.paths[*][get,post,put,patch,delete].responses[*].content[*].schema
+    then:
+      function: truthy
