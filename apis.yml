@@ -1,10 +1,10 @@
 aid: gutendex
 name: Gutendex
-description: Gutendex is a simple, self-hosted JSON-based web API for serving book catalog
-  information from Project Gutenberg, providing structured metadata for over 70,000 free
-  ebooks including titles, authors, subjects, bookshelves, languages, copyright status,
-  media types, downloadable formats, and download counts. The hosted instance at
-  gutendex.com runs the open-source Django project by Gareth B. Johnson under the MIT license.
+description: >-
+  Gutendex is a simple, self-hosted JSON-based web API for serving book catalog information from Project Gutenberg,
+  providing structured metadata for over 70,000 free ebooks including titles, authors, subjects, bookshelves, languages,
+  copyright status, media types, downloadable formats, and download counts. The hosted instance at gutendex.com runs the
+  open-source Django project by Gareth B. Johnson under the MIT license.
 image: https://gutendex.com/static/images/gutendex.png
 url: https://raw.githubusercontent.com/api-evangelist/gutendex/main/apis.yml
 created: '2026-05-28'
@@ -31,10 +31,10 @@ tags:
 apis:
   - aid: gutendex:books
     name: Gutendex Books API
-    description: Returns paginated metadata for Project Gutenberg ebooks with filters for
-      author birth/death year, copyright status, IDs, languages, MIME type, free-text
-      search, topic, and sort order. Also exposes individual book lookup by Project
-      Gutenberg ID.
+    description: >-
+      Returns paginated metadata for Project Gutenberg ebooks with filters for author birth/death year, copyright
+      status, IDs, languages, MIME type, free-text search, topic, and sort order. Also exposes individual book lookup by
+      Project Gutenberg ID.
     humanURL: https://gutendex.com
     baseURL: https://gutendex.com
     tags:
@@ -59,8 +59,6 @@ apis:
         url: json-schema/gutendex-error-schema.json
       - type: JSONLD
         url: json-ld/gutendex-context.jsonld
-      - type: NaftikoCapability
-        url: capabilities/gutendex-books.yaml
     contact:
       - FN: Gareth B. Johnson
         url: https://github.com/garethbjohnson
@@ -114,13 +112,17 @@ common:
       - name: Multiple Sort Orders
         description: Sort results by popularity (default), ascending ID, or descending ID.
       - name: Multi-format Downloads
-        description: Each book exposes a Format object mapping MIME types (HTML, EPUB, MOBI, plain text, JPEG) to direct download URLs.
+        description: >-
+          Each book exposes a Format object mapping MIME types (HTML, EPUB, MOBI, plain text, JPEG) to direct download
+          URLs.
       - name: Bookshelves and Subjects
         description: Books are tagged with Library of Congress subject headings and curated Project Gutenberg bookshelves.
       - name: Multi-language Support
         description: Books are indexed by two-character ISO language codes; filter by multiple languages at once.
       - name: Self-Hostable
-        description: MIT-licensed Django app that operators can run on their own infrastructure with nightly Project Gutenberg catalog sync.
+        description: >-
+          MIT-licensed Django app that operators can run on their own infrastructure with nightly Project Gutenberg
+          catalog sync.
   - type: UseCases
     data:
       - name: Literature Analytics
@@ -130,7 +132,9 @@ common:
       - name: Reading Recommendation Engines
         description: Use the download_count and bookshelf data to recommend popular classics or themed reading lists.
       - name: Digital Library Backends
-        description: Power library catalog interfaces and ebook reader apps with a clean JSON facade over Project Gutenberg's XML archives.
+        description: >-
+          Power library catalog interfaces and ebook reader apps with a clean JSON facade over Project Gutenberg's XML
+          archives.
       - name: Natural Language Processing Datasets
         description: Use the catalog to discover bulk text downloads for training language models on public-domain corpora.
       - name: Citation and Reference Tools
@@ -138,11 +142,15 @@ common:
   - type: Integrations
     data:
       - name: Project Gutenberg
-        description: Upstream source. Gutendex nightly-ingests the official Project Gutenberg XML catalog and republishes it as JSON.
+        description: >-
+          Upstream source. Gutendex nightly-ingests the official Project Gutenberg XML catalog and republishes it as
+          JSON.
       - name: Django REST Framework
         description: Built on Django + Django REST Framework. Operators can extend the API with additional viewsets.
       - name: Model Context Protocol
-        description: Community-maintained MCP servers expose Project Gutenberg / Gutendex to LLM agents (bobbyhouse, vellankis-space, nasimcoderex).
+        description: >-
+          Community-maintained MCP servers expose Project Gutenberg / Gutendex to LLM agents (bobbyhouse,
+          vellankis-space, nasimcoderex).
       - name: PostgreSQL / SQLite
         description: Default Django storage backends used by self-hosted instances for catalog persistence.
 maintainers:

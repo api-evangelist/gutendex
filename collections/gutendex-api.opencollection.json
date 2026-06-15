@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gutendex API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Books",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Books",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gutendex.com/books",
+            "params": [
+              {
+                "name": "author_year_start",
+                "value": "1800",
+                "type": "query",
+                "description": "Find books with at least one author alive on or after this year. Accepts positive or negative integers (negative for BCE)."
+              },
+              {
+                "name": "author_year_end",
+                "value": "1899",
+                "type": "query",
+                "description": "Find books with at least one author alive on or before this year. Accepts positive or negative integers (negative for BCE)."
+              },
+              {
+                "name": "copyright",
+                "value": "true,false",
+                "type": "query",
+                "description": "Filter by copyright status. Comma-separated values among `true` (copyrighted), `false` (public domain in the USA), and `null` (no available copyright information)."
+              },
+              {
+                "name": "ids",
+                "value": "11,12,13",
+                "type": "query",
+                "description": "Comma-separated list of Project Gutenberg ID numbers to retrieve."
+              },
+              {
+                "name": "languages",
+                "value": "en,fr",
+                "type": "query",
+                "description": "Comma-separated two-character language codes. Returns books in any of the listed languages."
+              },
+              {
+                "name": "mime_type",
+                "value": "text/html",
+                "type": "query",
+                "description": "Prefix-matched MIME type. Returns books that have at least one format whose MIME type starts with this value."
+              },
+              {
+                "name": "search",
+                "value": "dickens great",
+                "type": "query",
+                "description": "Space-separated keywords searched case-insensitively across author names and book titles. Up to 32 terms are honored."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order. `popular` (default) sorts by download count descending, `ascending` sorts by Project Gutenberg ID ascending, `descending` sorts by ID descending."
+              },
+              {
+                "name": "topic",
+                "value": "children",
+                "type": "query",
+                "description": "Case-insensitive key-phrase matched against bookshelf names and subject headings."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of book metadata from the Project Gutenberg catalog. Results are returned 32 per page and can be filtered by author birth/death year, copyright status, Project Gutenberg IDs, languages, MIME type, search keywords, and topic. By default books are sorted by popularity (download count, descending)."
+        },
+        {
+          "info": {
+            "name": "Get Book",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gutendex.com/books/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1342",
+                "type": "path",
+                "description": "Project Gutenberg ID number of the book."
+              }
+            ]
+          },
+          "docs": "Returns the metadata for a single book identified by its Project Gutenberg ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
