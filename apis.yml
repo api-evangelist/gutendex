@@ -63,6 +63,8 @@ apis:
       - FN: Gareth B. Johnson
         url: https://github.com/garethbjohnson
 common:
+  - type: DomainSecurity
+    url: security/gutendex-domain-security.yml
   - type: Website
     url: https://gutendex.com
   - type: Documentation
