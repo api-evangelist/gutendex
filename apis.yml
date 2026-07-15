@@ -63,6 +63,8 @@ apis:
       - FN: Gareth B. Johnson
         url: https://github.com/garethbjohnson
 common:
+  - type: AgenticAccess
+    url: agentic-access/gutendex-agentic-access.yml
   - type: DomainSecurity
     url: security/gutendex-domain-security.yml
   - type: Website
