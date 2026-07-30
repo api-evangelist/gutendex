@@ -5,6 +5,18 @@ description: >-
   providing structured metadata for over 70,000 free ebooks including titles, authors, subjects, bookshelves, languages,
   copyright status, media types, downloadable formats, and download counts. The hosted instance at gutendex.com runs the
   open-source Django project by Gareth B. Johnson under the MIT license.
+accessModel:
+  pricing: free
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Free · Open access
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 image: https://gutendex.com/static/images/gutendex.png
 url: https://raw.githubusercontent.com/api-evangelist/gutendex/main/apis.yml
 created: '2026-05-28'
@@ -29,39 +41,30 @@ tags:
   - Public APIs
   - Public Domain
 apis:
-  - aid: gutendex:books
-    name: Gutendex Books API
-    description: >-
-      Returns paginated metadata for Project Gutenberg ebooks with filters for author birth/death year, copyright
-      status, IDs, languages, MIME type, free-text search, topic, and sort order. Also exposes individual book lookup by
-      Project Gutenberg ID.
-    humanURL: https://gutendex.com
-    baseURL: https://gutendex.com
-    tags:
-      - Books
-      - Catalog
-      - Project Gutenberg
-      - Search
-    properties:
-      - type: Documentation
-        url: https://gutendex.com
-      - type: OpenAPI
-        url: openapi/gutendex-api-openapi.yml
-      - type: JSONSchema
-        url: json-schema/gutendex-book-schema.json
-      - type: JSONSchema
-        url: json-schema/gutendex-book-list-schema.json
-      - type: JSONSchema
-        url: json-schema/gutendex-person-schema.json
-      - type: JSONSchema
-        url: json-schema/gutendex-format-schema.json
-      - type: JSONSchema
-        url: json-schema/gutendex-error-schema.json
-      - type: JSONLD
-        url: json-ld/gutendex-context.jsonld
-    contact:
-      - FN: Gareth B. Johnson
-        url: https://github.com/garethbjohnson
+- aid: gutendex:gutendex-books-api
+  name: Gutendex Books API
+  description: Query and retrieve metadata for Project Gutenberg ebooks.
+  humanURL: https://gutendex.com
+  baseURL: https://gutendex.com
+  tags:
+  - Books
+  properties:
+  - type: OpenAPI
+    url: openapi/gutendex-books-api-openapi.yml
+  - type: Documentation
+    url: https://gutendex.com
+  - type: JSONSchema
+    url: json-schema/gutendex-book-schema.json
+  - type: JSONSchema
+    url: json-schema/gutendex-book-list-schema.json
+  - type: JSONSchema
+    url: json-schema/gutendex-person-schema.json
+  - type: JSONSchema
+    url: json-schema/gutendex-format-schema.json
+  - type: JSONSchema
+    url: json-schema/gutendex-error-schema.json
+  - type: JSONLD
+    url: json-ld/gutendex-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/gutendex-agentic-access.yml
