@@ -1,0 +1,14 @@
+{
+  "provider": "gutendex",
+  "sources": [
+    "gutendex-books-api-openapi.yml"
+  ],
+  "outputs": [
+    "gutendex-books-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
