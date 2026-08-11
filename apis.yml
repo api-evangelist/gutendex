@@ -66,6 +66,11 @@ apis:
   - type: JSONLD
     url: json-ld/gutendex-context.jsonld
 common:
+  - type: IssueTracker
+    url: https://github.com/garethbjohnson/gutendex/issues
+  - type: License
+    name: MIT
+    url: https://github.com/garethbjohnson/gutendex/blob/master/LICENSE
   - type: AgenticAccess
     url: agentic-access/gutendex-agentic-access.yml
   - type: DomainSecurity
@@ -75,7 +80,7 @@ common:
   - type: Documentation
     url: https://gutendex.com
   - type: OpenAPI
-    url: openapi/gutendex-api-openapi.yml
+    url: openapi/_original/gutendex-api-openapi.yml
   - type: JSONSchema
     url: json-schema/gutendex-book-schema.json
   - type: JSONLD
