@@ -21,7 +21,7 @@ image: https://gutendex.com/static/images/gutendex.png
 url: https://raw.githubusercontent.com/api-evangelist/gutendex/main/apis.yml
 created: '2026-05-28'
 modified: '2026-05-29'
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 type: Index
 access: 3rd-Party
 x-type: opensource
