@@ -1,0 +1,326 @@
+{
+  "item": [
+    {
+      "id": "494473a6-9332-4ffe-b8e7-025e5388e31c",
+      "name": "Books",
+      "description": {
+        "content": "Query and retrieve metadata for Project Gutenberg ebooks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ab01bbd2-c26e-4f4b-a656-6eea2d28480a",
+          "name": "List Books",
+          "request": {
+            "name": "List Books",
+            "description": {
+              "content": "Returns a paginated list of book metadata from the Project Gutenberg catalog. Results are returned 32 per page and can be filtered by author birth/death year, copyright status, Project Gutenberg IDs, languages, MIME type, search keywords, and topic. By default books are sorted by popularity (download count, descending).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "books"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "author_year_start",
+                  "value": "<integer>",
+                  "description": "Find books with at least one author alive on or after this year. Accepts positive or negative integers (negative for BCE)."
+                },
+                {
+                  "disabled": false,
+                  "key": "author_year_end",
+                  "value": "<integer>",
+                  "description": "Find books with at least one author alive on or before this year. Accepts positive or negative integers (negative for BCE)."
+                },
+                {
+                  "disabled": false,
+                  "key": "copyright",
+                  "value": "<string>",
+                  "description": "Filter by copyright status. Comma-separated values among `true` (copyrighted), `false` (public domain in the USA), and `null` (no available copyright information)."
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of Project Gutenberg ID numbers to retrieve."
+                },
+                {
+                  "disabled": false,
+                  "key": "languages",
+                  "value": "<string>",
+                  "description": "Comma-separated two-character language codes. Returns books in any of the listed languages."
+                },
+                {
+                  "disabled": false,
+                  "key": "mime_type",
+                  "value": "<string>",
+                  "description": "Prefix-matched MIME type. Returns books that have at least one format whose MIME type starts with this value."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Space-separated keywords searched case-insensitively across author names and book titles. Up to 32 terms are honored."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "popular",
+                  "description": "Sort order. `popular` (default) sorts by download count descending, `ascending` sorts by Project Gutenberg ID ascending, `descending` sorts by ID descending."
+                },
+                {
+                  "disabled": false,
+                  "key": "topic",
+                  "value": "<string>",
+                  "description": "Case-insensitive key-phrase matched against bookshelf names and subject headings."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "71a76415-46f1-4bb5-93b5-869a19fef683",
+              "name": "A paginated list of books.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "books"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "author_year_start",
+                      "value": "1800"
+                    },
+                    {
+                      "key": "author_year_end",
+                      "value": "1899"
+                    },
+                    {
+                      "key": "copyright",
+                      "value": "true,false"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "11,12,13"
+                    },
+                    {
+                      "key": "languages",
+                      "value": "en,fr"
+                    },
+                    {
+                      "key": "mime_type",
+                      "value": "text/html"
+                    },
+                    {
+                      "key": "search",
+                      "value": "dickens great"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "popular"
+                    },
+                    {
+                      "key": "topic",
+                      "value": "children"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6463,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"id\": 4919,\n      \"title\": \"string\",\n      \"authors\": [\n        {\n          \"name\": \"string\",\n          \"birth_year\": 7726,\n          \"death_year\": 1638\n        },\n        {\n          \"name\": \"string\",\n          \"birth_year\": 2846,\n          \"death_year\": 6832\n        }\n      ],\n      \"summaries\": [\n        \"string\",\n        \"string\"\n      ],\n      \"editors\": [\n        {\n          \"name\": \"string\",\n          \"birth_year\": 4476,\n          \"death_year\": 7430\n        },\n        {\n          \"name\": \"string\",\n          \"birth_year\": 6882,\n          \"death_year\": 5801\n        }\n      ],\n      \"translators\": [\n        {\n          \"name\": \"string\",\n          \"birth_year\": 1767,\n          \"death_year\": 5\n        },\n        {\n          \"name\": \"string\",\n          \"birth_year\": 471,\n          \"death_year\": 5400\n        }\n      ],\n      \"subjects\": [\n        \"string\",\n        \"string\"\n      ],\n      \"bookshelves\": [\n        \"string\",\n        \"string\"\n      ],\n      \"languages\": [\n        \"string\",\n        \"string\"\n      ],\n      \"copyright\": true,\n      \"media_type\": \"string\",\n      \"formats\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"download_count\": 7103\n    },\n    {\n      \"id\": 868,\n      \"title\": \"string\",\n      \"authors\": [\n        {\n          \"name\": \"string\",\n          \"birth_year\": 6060,\n          \"death_year\": 3396\n        },\n        {\n          \"name\": \"string\",\n          \"birth_year\": 7985,\n          \"death_year\": 9246\n        }\n      ],\n      \"summaries\": [\n        \"string\",\n        \"string\"\n      ],\n      \"editors\": [\n        {\n          \"name\": \"string\",\n          \"birth_year\": 527,\n          \"death_year\": 7354\n        },\n        {\n          \"name\": \"string\",\n          \"birth_year\": 8421,\n          \"death_year\": 4542\n        }\n      ],\n      \"translators\": [\n        {\n          \"name\": \"string\",\n          \"birth_year\": 5914,\n          \"death_year\": 5757\n        },\n        {\n          \"name\": \"string\",\n          \"birth_year\": 8038,\n          \"death_year\": 3327\n        }\n      ],\n      \"subjects\": [\n        \"string\",\n        \"string\"\n      ],\n      \"bookshelves\": [\n        \"string\",\n        \"string\"\n      ],\n      \"languages\": [\n        \"string\",\n        \"string\"\n      ],\n      \"copyright\": true,\n      \"media_type\": \"string\",\n      \"formats\": {\n        \"key_0\": \"string\"\n      },\n      \"download_count\": 782\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d55a47b-978d-4b56-a451-96af53779910",
+          "name": "Get Book",
+          "request": {
+            "name": "Get Book",
+            "description": {
+              "content": "Returns the metadata for a single book identified by its Project Gutenberg ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "books",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Project Gutenberg ID number of the book."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "61a23214-18d4-46cf-be1c-68f0f225dcfc",
+              "name": "Book metadata for the requested ID.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "books",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Project Gutenberg ID number of the book."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1569,\n  \"title\": \"string\",\n  \"authors\": [\n    {\n      \"name\": \"string\",\n      \"birth_year\": 5212,\n      \"death_year\": 2627\n    },\n    {\n      \"name\": \"string\",\n      \"birth_year\": 8953,\n      \"death_year\": 2934\n    }\n  ],\n  \"summaries\": [\n    \"string\",\n    \"string\"\n  ],\n  \"editors\": [\n    {\n      \"name\": \"string\",\n      \"birth_year\": 8594,\n      \"death_year\": 931\n    },\n    {\n      \"name\": \"string\",\n      \"birth_year\": 4340,\n      \"death_year\": 9656\n    }\n  ],\n  \"translators\": [\n    {\n      \"name\": \"string\",\n      \"birth_year\": 6900,\n      \"death_year\": 9324\n    },\n    {\n      \"name\": \"string\",\n      \"birth_year\": 8089,\n      \"death_year\": 823\n    }\n  ],\n  \"subjects\": [\n    \"string\",\n    \"string\"\n  ],\n  \"bookshelves\": [\n    \"string\",\n    \"string\"\n  ],\n  \"languages\": [\n    \"string\",\n    \"string\"\n  ],\n  \"copyright\": false,\n  \"media_type\": \"string\",\n  \"formats\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"download_count\": 8417\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95b08f90-3daa-4881-809a-4ab997a031f6",
+              "name": "No book with the supplied ID was found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "books",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Project Gutenberg ID number of the book."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gutendex.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c83655c8-cb87-46fc-a06d-72079bb9ab10",
+    "name": "Gutendex Books API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Gutendex is a simple, self-hosted JSON-based web API for serving book catalog information from Project Gutenberg, an online library of over 70,000 free ebooks. The API exposes metadata about books, authors, editors, translators, languages, subjects, bookshelves, copyright status, media types, and downloadable formats. The hosted instance at https://gutendex.com runs the open-source Django project published at github.com/garethbjohnson/gutendex under the MIT license.\n\nContact Support:\n Name: Gareth B. Johnson",
+      "type": "text/plain"
+    }
+  }
+}
