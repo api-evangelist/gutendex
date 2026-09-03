@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Gutendex Books API
   description: Gutendex is a simple, self-hosted JSON-based web API for serving book catalog information from Project Gutenberg, an online library of over 70,000 free ebooks. The API exposes metadata about books, authors, editors, translators, languages, subjects, bookshelves, copyright status, media types, and downloadable formats. The hosted instance at https://gutendex.com runs the open-source Django project published at github.com/garethbjohnson/gutendex under the MIT license.
@@ -144,28 +144,6 @@ components:
           description: Array of zero to thirty-two Book objects.
           items:
             $ref: '#/components/schemas/Book'
-    Person:
-      type: object
-      description: An author, editor, or translator associated with one or more books.
-      properties:
-        name:
-          type: string
-          description: Display name of the person, typically rendered as "Last, First".
-        birth_year:
-          type:
-          - integer
-          - 'null'
-          description: Year of birth as a signed integer; negative for BCE.
-        death_year:
-          type:
-          - integer
-          - 'null'
-          description: Year of death as a signed integer; negative for BCE.
-    Format:
-      type: object
-      description: Mapping of MIME-type strings to URLs where the book file can be downloaded. Keys are MIME types (for example `text/html`, `application/epub+zip`, `application/x-mobipocket-ebook`); values are URLs hosted on Project Gutenberg or its mirrors.
-      additionalProperties:
-        type: string
     Book:
       type: object
       description: Metadata for a single Project Gutenberg ebook.
@@ -233,3 +211,25 @@ components:
         detail:
           type: string
           description: Human-readable error message.
+    Person:
+      type: object
+      description: An author, editor, or translator associated with one or more books.
+      properties:
+        name:
+          type: string
+          description: Display name of the person, typically rendered as "Last, First".
+        birth_year:
+          type:
+          - integer
+          - 'null'
+          description: Year of birth as a signed integer; negative for BCE.
+        death_year:
+          type:
+          - integer
+          - 'null'
+          description: Year of death as a signed integer; negative for BCE.
+    Format:
+      type: object
+      description: Mapping of MIME-type strings to URLs where the book file can be downloaded. Keys are MIME types (for example `text/html`, `application/epub+zip`, `application/x-mobipocket-ebook`); values are URLs hosted on Project Gutenberg or its mirrors.
+      additionalProperties:
+        type: string

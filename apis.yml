@@ -23,14 +23,27 @@ accessModel:
   pricing: free
   onboarding: open
   trial: false
-  try_now: true
-  public: true
-  label: Free · Open access
-  confidence: medium
+  try_now: false
+  public: false
+  label: 'No key required by the API, but the host serves no anonymous programmatic request:
+    every path answers 403 behind a Cloudflare managed challenge, and robots.txt disallows
+    /books/ -- the only API endpoint -- to every user-agent.'
+  confidence: probed
   source:
-  - plans
+  - probe
   generated: '2026-07-22'
   method: derived
+  corrected: '2026-09-03'
+  corrected_note: 'Was try_now: true, public: true, "Free -- Open access" at confidence medium,
+    derived from the public-apis bulk registration with no probe ever run against the host
+    (the record carried no x-coverage evidence). Reported through report_correction by an
+    anonymous observer on 2026-09-01 and reproduced 2026-09-03: /, /books/ and /books/1 all
+    return 403 with cf-mitigated: challenge, and so does an invented control path, so nothing
+    is served to any programmatic client. robots.txt (200) carries a wildcard Disallow: /books/
+    plus named bans on ClaudeBot, GPTBot, CCBot, Bytespider and others, and a Content-Signal
+    of ai-train=no -- a deliberate no-automated-access posture, not an outage. The free/open
+    claim describes the API design; the served reality is that no agent and no anonymous
+    client can use it, so try_now and public are false until a probe says otherwise.'
 image: https://gutendex.com/static/images/gutendex.png
 url: https://raw.githubusercontent.com/api-evangelist/gutendex/main/apis.yml
 created: '2026-05-28'
@@ -40,6 +53,27 @@ type: Index
 access: 3rd-Party
 x-type: opensource
 x-category: Books
+x-coverage:
+  state: probed-unreachable
+  probed: '2026-09-03'
+  evidence:
+  - url: https://gutendex.com/
+    status: 403
+    note: 'cf-mitigated: challenge'
+  - url: https://gutendex.com/books/
+    status: 403
+    note: 'cf-mitigated: challenge'
+  - url: https://gutendex.com/books/1
+    status: 403
+    note: 'cf-mitigated: challenge'
+  - url: https://gutendex.com/zzz-control-26366
+    status: 403
+    note: 'invented control path, also challenged -- the wall is host-wide, not per-route'
+  - url: https://gutendex.com/robots.txt
+    status: 200
+    note: 'wildcard Disallow: /books/; named bans on ClaudeBot, GPTBot, CCBot, Bytespider,
+      Amazonbot, Applebot-Extended, Google-Extended, meta-externalagent; Content-Signal
+      ai-train=no'
 x-source: public-apis/public-apis
 x-tier: 3
 x-tier-reason: bulk-registered-from-public-apis

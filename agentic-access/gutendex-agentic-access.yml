@@ -1,6 +1,16 @@
 generated: '2026-07-15'
 method: generated
 source: openapi/gutendex-api-openapi.yml
+operator_consent:
+  state: refused
+  probed: '2026-09-03'
+  note: 'READ THIS BEFORE BINDING ANY AGENT. The operator refuses automated access: every
+    path on gutendex.com answers 403 behind a Cloudflare managed challenge (including an
+    invented control path), robots.txt carries a wildcard Disallow: /books/ -- the only API
+    endpoint -- plus named bans on ClaudeBot, GPTBot, CCBot and others, and a Content-Signal
+    of ai-train=no. The execution contracts below are derived from the published OpenAPI and
+    describe what the API WOULD permit; the operator''s served posture currently permits
+    none of it to any agent. Honoring that posture is part of the contract.'
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
