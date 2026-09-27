@@ -84,7 +84,7 @@ tags:
   - Library
   - Literature
   - Metadata
-  - Open-Source
+  - Open Source
   - Project Gutenberg
   - Public APIs
   - Public Domain
@@ -99,12 +99,12 @@ tags_raw:
   - Project Gutenberg
   - Public APIs
   - Public Domain
+  - Open-Source
 apis:
 - aid: gutendex:gutendex-books-api
   name: Gutendex Books API
   description: Query and retrieve metadata for Project Gutenberg ebooks.
   humanURL: https://gutendex.com
-  baseURL: https://gutendex.com
   tags:
   - Books
   properties:
