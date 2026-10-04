@@ -1,25 +1,24 @@
-# Kin Score artifact — gutendex — 2026-08-27T123021
+# Kin Score artifact — gutendex — 2026-09-25T210408
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: gutendex
-  schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T123021
-  composite: 45.5
+  schema_version: 0.23.0
+  scored_at: '2026-09-25'
+  run_ts: 2026-09-25T210408
+  composite: 41.9
   band: developing
   facets:
-    discoverability: 68.5
-    contract_quality: 69.4
-    governance: 25.0
-    operational_transparency: 36.8
+    discoverability: 66.1
+    contract_quality: 63.2
+    contract_governance: 23.5
+    operational_transparency: 33.7
     developer_ergonomics: 33.3
-    commercial_clarity: 31.6
-    contract_governance: 25.0
-    access_clarity: 31.6
+    access_clarity: 29.5
   agent_readiness:
     score: 28.7
-    band: agent-ready
+    band: agent-aware
+    band_gated_from: agent-ready
     dimensions:
       spec_presence: true
       agentic_access: derived
@@ -44,7 +43,7 @@ kin_score:
     applies: true
     regime: Education & Research
     regime_id: education
-    score: 31.5
+    score: 16.7
     matched_via: tags
   provenance:
     agentic_access: derived
