@@ -1,4 +1,4 @@
-# Gutendex (gutendex)
+# Gutendex
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,85 +66,158 @@
 
 Gutendex is a simple, self-hosted JSON-based web API for serving book catalog information from Project Gutenberg, providing structured metadata for over 70,000 free ebooks including titles, authors, subjects, bookshelves, languages, copyright status, media types, downloadable formats, and download counts. The hosted instance at gutendex.com runs the open-source Django project by Gareth B. Johnson under the MIT license.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/gutendex/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/gutendex/main/apis.yml)
+**Areas:** Books · Catalog · Ebooks · Library · Literature · Metadata · Open Source · Project Gutenberg · Public APIs · Public Domain
 
-## Scope
+## Gutendex on APIs.io
 
-- **Type:** Index
-- **Access:** 3rd-Party
+Everything profiled for Gutendex is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/gutendex/](https://apis.io/providers/gutendex/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (1)
 
-- Books
-- Catalog
-- Ebooks
-- Library
-- Literature
-- Metadata
-- Open Source
-- Project Gutenberg
-- Public APIs
-- Public Domain
+- [Gutendex Books API](https://apis.io/apis/gutendex/gutendex-books-api/) — Query and retrieve metadata for Project Gutenberg ebooks.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-28
-- **Modified:** 2026-05-29
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Gutendex Books API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Returns paginated metadata for Project Gutenberg ebooks with filters for author birth/death year, copyright status, IDs, languages, MIME type, free-text search, topic, and sort order. Also exposes individual book lookup by Project Gutenberg ID.
+- [Gutendex Agentic Access](https://apis.io/agentic-access/gutendex/gutendex-agentic-access/)
 
-- **Human URL:** [https://gutendex.com](https://gutendex.com)
-- **Base URL:** `https://gutendex.com`
+#### JSON Schema (5)
 
-#### Tags
+The data models the API reads and writes.
 
-- Books
-- Catalog
-- Project Gutenberg
-- Search
+- [Book](https://apis.io/schemas/gutendex/gutendex-book/)
+- [BookList](https://apis.io/schemas/gutendex/gutendex-book-list/)
+- [Error](https://apis.io/schemas/gutendex/gutendex-error/)
+- [Format](https://apis.io/schemas/gutendex/gutendex-format/)
+- [Person](https://apis.io/schemas/gutendex/gutendex-person/)
 
-#### Properties
+#### JSON Structure (5)
 
-- [Documentation](https://gutendex.com)
-- [OpenAPI](openapi/gutendex-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gutendex-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gutendex-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/gutendex-book-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/gutendex-book-list-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/gutendex-person-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/gutendex-format-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/gutendex-error-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/gutendex-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+Data models expressed in JSON Structure.
 
-## Common Properties
+- [Gutendex Book List Structure](https://apis.io/json-structure/gutendex/gutendex-book-list-structure/)
+- [Gutendex Book Structure](https://apis.io/json-structure/gutendex/gutendex-book-structure/)
+- [Gutendex Error Structure](https://apis.io/json-structure/gutendex/gutendex-error-structure/)
+- [Gutendex Format Structure](https://apis.io/json-structure/gutendex/gutendex-format-structure/)
+- [Gutendex Person Structure](https://apis.io/json-structure/gutendex/gutendex-person-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Gutendex Context](https://apis.io/jsonld/gutendex/gutendex-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Gutendex Domain Vocabulary](https://apis.io/vocabularies/gutendex/gutendex-vocabulary/)
+
+#### Examples (6)
+
+Example requests and responses.
+
+- [Gutendex Book Example](https://apis.io/examples/gutendex/gutendex-book-example/)
+- [Gutendex Error Example](https://apis.io/examples/gutendex/gutendex-error-example/)
+- [Gutendex Format Example](https://apis.io/examples/gutendex/gutendex-format-example/)
+- [Gutendex Get Book Example](https://apis.io/examples/gutendex/gutendex-get-book-example/)
+- [Gutendex List Books Example](https://apis.io/examples/gutendex/gutendex-list-books-example/)
+- [Gutendex Person Example](https://apis.io/examples/gutendex/gutendex-person-example/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [Gutendex API](https://apis.io/collections/gutendex/open-gutendex-api/)
+- [Gutendex Books API](https://apis.io/collections/gutendex/open-gutendex-books-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Gutendex — jsonschema rules](https://apis.io/rules/gutendex/gutendex-jsonschema-spectral-rules/)
+- [Gutendex API Rules](https://apis.io/rules/gutendex/gutendex-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Gutendex Domain Security](https://apis.io/security/gutendex/gutendex-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Gutendex Plans Pricing](https://apis.io/plans/gutendex/gutendex-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Gutendex Rate Limits](https://apis.io/rate-limits/gutendex/gutendex-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://gutendex.com)
 - [Documentation](https://gutendex.com)
-- [OpenAPI](openapi/gutendex-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [JSON Schema](json-schema/gutendex-book-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/gutendex-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [GitHub Repository](https://github.com/garethbjohnson/gutendex)
-- [Public APIs Listing](https://github.com/public-apis/public-apis)
-- [Plans](plans/gutendex-plans-pricing.yml)
-- [Pricing](plans/gutendex-plans-pricing.yml)
-- [Rate Limits](rate-limits/gutendex-rate-limits.yml)
-- [Spectral Rules](rules/gutendex-rules.yml)
-- [Vocabulary](vocabulary/gutendex-vocabulary.yml)
-- [Authentication](https://gutendex.com)
-- [Getting Started](https://github.com/garethbjohnson/gutendex/wiki/Installation-Guide)
-- [Tools](https://github.com/bobbyhouse/project-gutenberg-mcp)
-- [Tools](https://github.com/vellankis-space/project-gutenberg-mcp-server)
-- [Tools](https://github.com/nasimcoderex/gutenberg-mcp-server)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Getting started](https://github.com/garethbjohnson/gutendex/wiki/Installation-Guide)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 35.6** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 63.2 |
+| Contract governance | 23.5 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 15.8 |
+
+**Agent readiness 26.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/gutendex/](https://apis.io/providers/gutendex/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Gutendex: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/gutendex/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
